@@ -22,17 +22,38 @@
 
                         <form action="" method="POST">
                             <?php
-                                include 'config/conexion.php';
-                                include 'controlador/controlador_registro.php';
+                            include 'config/conexion.php';
+                            include 'controlador/controlador_registro.php';
                             ?>
+
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="username" name="username" required autofocus>
-                                <label for="username">Nombre de Usuario</label>
+                                <input type="text" class="form-control" id="documento" name="documento" required autofocus>
+                                <label for="documento">Documento ID</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="username" name="nombre" required>
+                                <label for="username">Nombre</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="apellido" name="apellido" required>
+                                <label for="apellido">Apellido</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control" id="fecha" name="fecha" required>
+                                <label for="fecha">Fecha Nacimiento</label>
                             </div>
 
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control" id="email" name="email">
                                 <label for="email">Dirección de Email</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="telefono" name="telefono" required>
+                                <label for="telefono">Telefono</label>
                             </div>
 
                             <hr>
@@ -54,9 +75,9 @@
 
                             <a class="d-block text-center mt-2 small" href="index.php">Ya tienes una cuenta? Ingresa Aca</a>
 
-                            <hr class="my-4">
+                            <!-- <hr class="my-4"> -->
 
-                            <div class="d-grid mb-2">
+                            <!-- <div class="d-grid mb-2">
                                 <button class="btn btn-lg btn-google btn-login fw-bold text-uppercase" type="submit">
                                     <i class="fab fa-google me-2"></i> Sign up with Google
                                 </button>
@@ -66,7 +87,7 @@
                                 <button class="btn btn-lg btn-facebook btn-login fw-bold text-uppercase" type="submit">
                                     <i class="fab fa-facebook-f me-2"></i> Sign up with Facebook
                                 </button>
-                            </div>
+                            </div> -->
 
                         </form>
                     </div>

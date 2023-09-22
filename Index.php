@@ -27,8 +27,8 @@
                                         include "controlador/controlador_login.php";
                                     ?>
                                     <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" id="floatingInput" name="email">
-                                        <label for="floatingInput">Dirección de Email</label>
+                                        <input type="text" class="form-control" id="floatingInput" name="documento">
+                                        <label for="floatingInput">Documento ID</label>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input type="password" class="form-control" id="floatingPassword" name="password">
