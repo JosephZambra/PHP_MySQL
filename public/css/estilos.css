@@ -3,6 +3,10 @@
     min-height: 100vh;
   }
   
+  .pagina {
+    height: 100vh;
+  }
+
   .bg-image {
     background-image: url('./../imagenes/Login.jpg');
     
@@ -42,3 +46,34 @@
     color: white !important;
     background-color: #3b5998;
   }
+
+  .footer {
+    background-color: #212121;
+    color: #fff;
+    /* padding: 50px 0 30px 0; */
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.footer .redes {
+    margin-bottom: 20px;
+}
+
+.footer .redes a {
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid #4fc3f7;
+    border-radius: 100%;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    margin: 30px 0 5px 0;
+    font-size: 20px;
+    transition: .3s;
+}
+
+.nombres {
+  background-color: #4fc3f7;
+}

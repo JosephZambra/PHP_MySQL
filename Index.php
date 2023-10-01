@@ -21,10 +21,10 @@
                             <div class="col-md-9 col-lg-8 mx-auto">
                                 <h3 class=" mb-4">Inicia Sesión</h3>
                                 <!-- Formulario de Login -->
-                                <form action="" method="POST">
+                                <form action="./view/scripts/login.php" method="POST">
                                     <?php
-                                        include "config/conexion.php";
-                                        include "controlador/controlador_login.php";
+                                    // include "config/conexion.php";
+                                    // include "controlador/controlador_login.php";
                                     ?>
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="floatingInput" name="documento">
@@ -37,10 +37,10 @@
 
                                     <div class="d-grid">
                                         <!-- <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" name="btnIngresar" value="ppp">Entrar</button> -->
-                                        <input type="submit" class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" name="btnIngresar" value="Iniciar Sesion" >
+                                        <input type="submit" class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" name="btnIngresar" value="Iniciar Sesion">
                                         <div class="text-center">
                                             <h4 class="mt-4">¿No estas registrado?</h4>
-                                            <a class="small" href="Registro.php"><span>¡Registrate aqui!</span></a>
+                                            <a class="small" href="./view/Registro.php"><span>¡Registrate aqui!</span></a>
                                         </div>
                                     </div>
 
@@ -52,7 +52,6 @@
             </div>
         </div>
     </div>
-    <!-- JS de bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 

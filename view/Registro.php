@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css/estilos.css">
+    <link rel="stylesheet" href="../public/css/estilos.css">
     <title>Document</title>
 </head>
 
@@ -20,10 +20,11 @@
                     <div class="card-body p-4 p-sm-5">
                         <h5 class="card-title text-center mb-5 fw-light fs-5">Regístrate</h5>
 
-                        <form action="" method="POST">
+                        <form action="./scripts/registro.php" method="POST">
                             <?php
-                            include 'config/conexion.php';
-                            include 'controlador/controlador_registro.php';
+                            // include 'config/conexion.php';
+                            // include 'controlador/controlador_registro.php';
+                            
                             ?>
 
                             <div class="form-floating mb-3">
