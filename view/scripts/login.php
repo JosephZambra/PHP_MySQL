@@ -11,10 +11,12 @@ if (!empty($_POST['btnIngresar'])) {
             $_SESSION['documento_per'] = $respuesta->documento_per;
             $_SESSION['nombre_per'] = $respuesta->nombre_per;
             $_SESSION['apellido_per'] = $respuesta->apellido_per;
-            $_SESSION['codigo_tip'] = $respuesta->codigo_tip;
+            $_SESSION['tipoPersona'] = $respuesta->nombre_tip;
+            $_SESSION['fotoPer'] = $respuesta->foto_per;
             header("Location: /www/PHP_MYSQL/view/inicio.php");
         }else{
             $error = "<div class='alert alert-danger'>Acceso Denegado</div>";
+            header('Location: /www/PHP_MYSQL/index.php');
         }
         // if ($datos = $sql->fetch_object()) {
         //     // die(var_dump($datos));
@@ -26,6 +28,7 @@ if (!empty($_POST['btnIngresar'])) {
         //     echo "<div class='alert alert-danger'>Acceso Denegado</div>";
         // }
     } else {
-        echo "<div class='alert alert-danger'>Acceso Denegado</div>";
+        header('Location: /www/PHP_MYSQL/index.php');
+        // echo "<div class='alert alert-danger'>Llenar los campos</div>";
     }
 }

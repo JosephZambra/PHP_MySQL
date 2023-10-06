@@ -2,62 +2,60 @@
 require_once('C:\xampp\htdocs\www\PHP_MySQL\view\head\navbar.php');
 require_once('C:\xampp\htdocs\www\PHP_MySQL\controlador\usuarioController.php');
 $respuesta = new usuarioController();
-$usuario = $respuesta->datosUusario($_GET['id']);
 $tipos = $respuesta->tiposUsuarios();
 $semilleros = $respuesta->listaSemilleros();
-// die(var_dump($tipos));
 ?>
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <?php require_once('../head/menuLateral.php') ?>
         <div class="col-7 mx-auto py-3">
-            <h3 class="text-center">Modificar Usuario</h2>
-            <form action="../scripts/actualizar.php" method="POST">
+            <h2 class="text-center mb-3">Crear Nuevo Usuario</h2>
+            <form action="../scripts/registro.php" method="POST">
                 <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label fw-bold">Documento:</label>
+                    <label for="staticEmail" class="col-sm-2 col-form-label ">Documento: </label>
                     <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext fw-bold" id="staticEmail" name="documento" value="<?php echo $usuario->documento_per ?>">
+                        <input type="text" class="form-control" id="inputText" name="documento">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Nombre:</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Nombre:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputText" name="nombre" value="<?php echo $usuario->nombre_per ?>">
+                        <input type="text" class="form-control" id="inputText" name="nombre" >
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Apellido:</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Apellido:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputText" name="apellido" value="<?php echo $usuario->apellido_per ?>">
+                        <input type="text" class="form-control" id="inputText" name="apellido" >
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Fecha Naci:</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Fecha N:</label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control" id="inputDate" name="fecha" value="<?php echo $usuario->fechanacimiento ?>">
+                        <input type="date" class="form-control" id="inputDate" name="fecha">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Correo:</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Correo:</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail" name="correo" value="<?php echo $usuario->email_per ?>">
+                        <input type="email" class="form-control" id="inputEmail" name="email">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Telefono:</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Telefono:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputTelefono" name="telefono" value="<?php echo $usuario->telefono_per ?>">
+                        <input type="text" class="form-control" id="inputTelefono" name="telefono">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Estado:</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Estado:</label>
                     <div class="col-sm-10">
                         <div class="form-group">
                             <select class="form-control" id="exampleFormControlSelect1" name="estado">
-                                    <option value="ACTIVO" <?php ($usuario->estado_per == 'ACTIVO') ? printf("selected") : "" ?>>
+                                    <option>
                                         ACTIVO
                                     </option>
-                                    <option value="INACTIVO" <?php ($usuario->estado_per == 'INACTIVO') ? printf("selected") : "" ?>>
+                                    <option>
                                         INACTIVO
                                     </option>
                             </select>
@@ -65,12 +63,12 @@ $semilleros = $respuesta->listaSemilleros();
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">T. Persona:</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Tipo Persona:</label>
                     <div class="col-sm-10">
                         <div class="form-group">
                             <select class="form-control" id="exampleFormControlSelect1" name="tipopersona">
                                 <?php foreach ($tipos as $tipo) : ?>
-                                    <option value=<?php printf($tipo->codigo_tip) ?> <?php ($tipo->codigo_tip == $usuario->codigo_tip) ? printf("selected") : "" ?>>
+                                    <option value=<?php printf($tipo->codigo_tip) ?>>
                                         <?php echo $tipo->codigo_tip ?> - <?php echo $tipo->nombre_tip ?>
                                     </option>
                                 <?php endforeach; ?>
@@ -79,12 +77,12 @@ $semilleros = $respuesta->listaSemilleros();
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputSemillero" class="col-sm-2 col-form-label fw-bold">Semillero:</label>
+                    <label for="inputSemillero" class="col-sm-2 col-form-label">Semillero:</label>
                     <div class="col-sm-10">
                         <div class="form-group">
                             <select class="form-control" id="exampleFormControlSelect1" name="semillero">
                                 <?php foreach ($semilleros as $sem) : ?>
-                                    <option value=<?php printf($sem->codigo_sem) ?> <?php ($sem->codigo_sem == $usuario->codigo_sem) ? printf("selected") : "" ?>>
+                                    <option value=<?php printf($sem->codigo_sem) ?>>
                                         <?php echo $sem->codigo_sem ?> - <?php echo $sem->nombre_sem ?>
                                     </option>
                                 <?php endforeach; ?>
@@ -92,15 +90,14 @@ $semilleros = $respuesta->listaSemilleros();
                         </div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between">
-                    <div class="">
-                        <a href="./datosUsuario.php?id=<?php echo $usuario->documento_per ?>" class="btn btn-dark">Regresar</a>
-                        <input type="submit" class="btn btn-success" value="Actualizar">
-                    </div>
-                    <div class="">
-                        <a href="../scripts/resetPass.php?id=<?php echo $usuario->documento_per ?>" class="text-end btn btn-danger">Reset Contrseña</a>                        
+                <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña:</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword" name="password">
                     </div>
                 </div>
+                <input type="submit" class="btn btn-primary" name="btnRegistro" value="Guardar">
+                <a href="../crudUsuarios.php" class="btn btn-dark">Regresar</a>
             </form>
         </div>
     </div>

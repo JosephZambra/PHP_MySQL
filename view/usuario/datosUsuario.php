@@ -46,16 +46,12 @@ $usuario = $respuesta->datosUusario($_GET['id']);
                         <td colspan="2"><?php echo $usuario->estado_per ?></td>
                     </tr>
                     <tr>
-                        <th scope="row">¿Contraseña?</th>
-                        <td colspan="2"><?php echo $usuario->password_per ?></td>
-                    </tr>
-                    <tr>
                         <th scope="row">Tipo Persona</th>
-                        <td colspan="2"><?php echo $usuario->nombre ?></td>
+                        <td colspan="2"><?php echo $usuario->nombre_tip ?></td>
                     </tr>
                     <tr>
-                        <th scope="row">¿Tipo Sem?</th>
-                        <td colspan="2"><?php echo $usuario->codigo_sem ?></td>
+                        <th scope="row">Semillero</th>
+                        <td colspan="2"><?php echo $usuario->nombre_sem ?></td>
                     </tr>
                 </tbody>
             </table>

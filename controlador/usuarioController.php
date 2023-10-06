@@ -9,7 +9,7 @@ class usuarioController
         $this->model = new usuarioModel();
     }
 
-    public function registrar($documento, $nombre, $apellido, $fecha, $telefono, $email, $password)
+    public function registrar($documento, $nombre, $apellido, $fecha, $telefono, $email, $password, $estado, $tipopersona, $semillero)
     {
         $id = $this->model->insertar(
             $this->limpiarNumero($documento),
@@ -18,9 +18,13 @@ class usuarioController
             $fecha,
             $this->limpiarCorreo($email),
             $this->limpiarNumero($telefono),
+            $estado,
+            $tipopersona,
+            $semillero,
             $this->passHash($this->limpiarPass($password))
         );
-        return ($id != false) ? header('location: /www/PHP_MYSQL/index.php') : header('location: /www/PHP_MYSQL/view/registro.php');
+        // return ($id != false) ? header('location: /www/PHP_MYSQL/index.php') : header('location: /www/PHP_MYSQL/view/registro.php');
+        return ($id != false) ? header('location: /www/PHP_MYSQL/view/crudUsuarios.php') : header('location: /www/PHP_MYSQL/view/usuario/crearUsuario.php');
     }
 
     public function login($documento, $password)
@@ -42,9 +46,9 @@ class usuarioController
         return ($this->model->datosUsuario($documento) !== false) ? $this->model->datosUsuario($documento) : false;
     }
 
-    public function actualizarUsuario($documento, $nombre, $apellido, $fecha, $email, $telefono, $estado_per, $codigo_tip)
+    public function actualizarUsuario($documento, $nombre, $apellido, $fecha, $email, $telefono, $estado_per, $codigo_tip, $semillero)
     {
-        return ($this->model->actualizarUsuario($documento, $nombre, $apellido, $fecha, $email, $telefono, $estado_per, $codigo_tip)) ? header("Location: /www/PHP_MYSQL/view/usuario/datosUsuario.php?id=".$documento) : header("Location: /www/PHP_MYSQL/view/crudUsuarios.php");
+        return ($this->model->actualizarUsuario($documento, $nombre, $apellido, $fecha, $email, $telefono, $estado_per, $codigo_tip, $semillero)) ? header("Location: /www/PHP_MYSQL/view/usuario/datosUsuario.php?id=".$documento) : header("Location: /www/PHP_MYSQL/view/crudUsuarios.php");
     }
 
     public function eliminarUsuario($documento)
@@ -52,9 +56,29 @@ class usuarioController
         return ($this->model->eliminarUsuario($documento)) ? header("Location: /www/PHP_MYSQL/view/crudUsuarios.php") : header("Location: /www/PHP_MYSQL/view/usuario/datosUsuario.php?id=".$documento);
     }
 
+    public function newPass($doc, $pass)
+    {
+        return ($this->model->resetPass($doc,$pass)) ? header("Location: /www/PHP_MYSQL/view/usuario/perfil.php") : header("Location: /www/PHP_MYSQL/view/usuario/perfil.php");
+    }
+
+    public function resetPass($doc, $pass)
+    {
+        return ($this->model->resetPass($doc,$pass)) ? header("Location: /www/PHP_MYSQL/view/usuario/modificarUsuario.php?id=".$doc) : header("Location: /www/PHP_MYSQL/view/usuario/modificarUsuario.php?id=".$doc);
+    }
+
+    public function actualizarImagen($doc, $imagen)
+    {
+        return ($this->model->updateImagen($doc,$imagen)) ? header("Location: /www/PHP_MYSQL/view/usuario/perfil.php") : header("Location: /www/PHP_MYSQL/view/usuario/perfil.php");
+    }
+
     public function tiposUsuarios()
     {
         return ($this->model->tiposUsuarios()) ? $this->model->tiposUsuarios() : false;
+    }
+
+    public function listaSemilleros()
+    {
+        return ($this->model->listaSemilleros()) ? $this->model->listaSemilleros() : false;
     }
 
     public function limpiarCadena($texto)

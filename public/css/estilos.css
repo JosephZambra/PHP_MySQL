@@ -2,6 +2,10 @@
 .login {
     min-height: 100vh;
   }
+
+  div .nav-nombre {
+    color: rgb(37, 150, 190);
+  }
   
   .pagina {
     height: 100vh;
@@ -57,7 +61,7 @@
 }
 
 .footer .redes {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .footer .redes a {
@@ -75,5 +79,24 @@
 }
 
 .nombres {
-  background-color: #4fc3f7;
+  color: #4fc3f7;
+}
+
+/* Icono Ojo Contraseña */
+form span i:hover{
+  cursor: pointer;
+}
+
+.noMostrar {
+  display: none;
+}
+
+tabla tr.noSearch {
+  background: White;
+  font-size: 0.8em;
+}
+
+tabla tr.noSearch td {
+  padding-top: 10px;
+  text-align: right;
 }

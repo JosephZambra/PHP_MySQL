@@ -9,7 +9,5 @@ $correo = $_POST['correo'];
 $telefono = $_POST['telefono'];
 $estado = $_POST['estado'];
 $tipo = intval($_POST['tipopersona']);
-// die(var_dump($documento,$nombre,$apellido,$fecha,$correo,$telefono,$estado,$tipo));
-$respuesta->actualizarUsuario($documento,$nombre,$apellido,$fecha,$correo,$telefono,$estado,$tipo);
-
-?>
+$semillero = intval($_POST['semillero']);
+$respuesta->actualizarUsuario($documento,$nombre,$apellido,$fecha,$correo,$telefono,$estado,$tipo,$semillero);
