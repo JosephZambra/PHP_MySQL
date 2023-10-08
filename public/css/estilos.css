@@ -11,9 +11,9 @@
     height: 100vh;
   }
 
+  /* IMAGEN PARA LA PAGINA DEL LOGIN */
   .bg-image {
     background-image: url('./../imagenes/Login.jpg');
-    
     background-size: cover;
     background-position: center;
   }
@@ -30,7 +30,7 @@
   
   .card-img-left {
     width: 45%;
-    /* Link to your background image using in the property below! */
+    /* RUTA DE LA IMAGEN PARA PAGINA DE REGISTRO */
     background: scroll center url('./../imagenes/Registro.jpg');
     background-size: cover;
   }
@@ -51,10 +51,9 @@
     background-color: #3b5998;
   }
 
+  /* FOOTER */
   .footer {
-    background-color: #212121;
     color: #fff;
-    /* padding: 50px 0 30px 0; */
     text-align: center;
     position: relative;
     width: 100%;
@@ -78,24 +77,20 @@
     transition: .3s;
 }
 
-.nombres {
-  color: #4fc3f7;
-}
-
-/* Icono Ojo Contraseña */
+/* VER O OCULTAR CONTRASEÑA */
 form span i:hover{
   cursor: pointer;
 }
 
+
+/* BUSCAR EN LA TABLA DE USUARIOS */
 .noMostrar {
   display: none;
 }
-
 tabla tr.noSearch {
   background: White;
   font-size: 0.8em;
 }
-
 tabla tr.noSearch td {
   padding-top: 10px;
   text-align: right;

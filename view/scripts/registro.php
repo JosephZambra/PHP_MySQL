@@ -13,15 +13,10 @@ if (!empty($_POST['btnRegistro'])) {
         $email = trim($_POST['email']);
         $telefono = trim($_POST['telefono']);
         $estado = $_POST['estado'] ?? 'INACTIVO';
-        $persona = intval($_POST['tipopersona']) ?? 1;
-        $semillero = intval($_POST['semillero']) ?? 1;
+        $persona = intval($_POST['tipopersona']) == 0 ? 1 : intval($_POST['tipopersona']);
+        $semillero = intval($_POST['semillero']) == 0 ? 1 : intval($_POST['semillero']);
         $password = trim($_POST['password']);
         $usuario = new usuarioController();
         $usuario->registrar($documento, $nombre, $apellido, $fecha, $telefono, $email, $password, $estado, $persona, $semillero);
-        // if ($password == $password2) {
-            
-        // }else {
-        //     echo "<div class='alert alert-danger'>Las Contraseñas no coinciden</div>";
-        // }
     }
 }

@@ -17,10 +17,10 @@
             <i class="fs-4 bi-people text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Usuarios</span> </a>
         </li>
       <?php }
-        if($_SESSION['tipoPersona'] == 'Profesor'){
+        if($_SESSION['tipoPersona'] == 'Profesor' || $_SESSION['tipoPersona'] == 'Administrador'){
        ?>
       <li>
-        <a href="#" class="nav-link px-0 align-middle">
+        <a href="/www/PHP_MYSQL/view/usuario/crearTarea.php" class="nav-link px-0 align-middle">
           <i class="fs-4 bi-table text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Crear Tarea</span></a>
       </li>
       <?php }
@@ -40,21 +40,5 @@
       </li>
       <?php } ?>
     </ul>
-    <!-- <div class="dropdown pb-4">
-      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="../public/imagenes/Profile.jpg" alt="hugenerd" width="30" height="30" class="rounded-circle">
-        <span class="d-none d-sm-inline mx-1">Nombre</span>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-        <li><a class="dropdown-item" href="#">New project...</a></li>
-        <li><a class="dropdown-item" href="#">Settings</a></li>
-        <li><a class="dropdown-item" href="#">Profile</a></li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
-      </ul>
-    </div> -->
-    <!-- <hr> -->
   </div>
 </div>

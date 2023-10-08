@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,30 +23,25 @@
                                 <!-- Formulario de Login -->
                                 <form action="./view/scripts/login.php" method="POST">
                                     
-                                    <!-- <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingInput" name="documento">
-                                        <label for="floatingInput">Documento ID</label>
-                                    </div> -->
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">#</span>
                                         <input type="text" class="form-control" placeholder="Documento" name="documento" autofocus>
                                     </div>
-                                    <!-- <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" id="floatingPassword" name="password">
-                                        <label for="floatingPassword">Contraseña</label>
-                                    </div> -->
+
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">*</span>
                                         <input type="password" class="form-control" aria-label="Password" name="password" id="inputPass" placeholder="Contraseña">
-                                        <span class="input-group-text icono-ojo"><i class="bi bi-eye-slash" id="eyePass"></i></span>
+                                        <span class="input-group-text icono-ojo" onclick="mostrarOcultarPass()"><i class="bi bi-eye-slash" id="eyePass"></i></span>
                                     </div>
+
                                     <div class="d-grid">
                                         <input type="submit" class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" name="btnIngresar" value="Iniciar Sesion">
-                                        <!-- <div class="text-center">
+                                        <div class="text-center">
                                             <h4 class="mt-4">¿No estas registrado?</h4>
                                             <a class="small" href="./view/Registro.php"><span>¡Registrate aqui!</span></a>
-                                        </div> -->
+                                        </div>
                                     </div>
+                                    
                                 </form>
                             </div>
                         </div>

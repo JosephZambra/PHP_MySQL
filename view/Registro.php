@@ -17,15 +17,10 @@
                     <div class="card-img-left d-none d-md-flex">
                         <!-- Aca va la Imagen desde CSS -->
                     </div>
-                    <div class="card-body p-4 p-sm-5">
-                        <h5 class="card-title text-center mb-5 fw-light fs-5">Regístrate</h5>
+                    <div class="card-body p-2 p-sm-3">
+                        <h5 class="card-title text-center mb-4 fw-bold fs-5">Regístrate</h5>
 
                         <form action="./scripts/registro.php" method="POST">
-                            <?php
-                            // include 'config/conexion.php';
-                            // include 'controlador/controlador_registro.php';
-                            
-                            ?>
 
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="documento" name="documento" required autofocus>
@@ -65,16 +60,20 @@
                             </div>
 
                             <div class="form-floating mb-3">
+                                <input type="hidden" class="form-control" id="persona" name="tipopersona">
+                                <input type="hidden" class="form-control" id="persona" name="semillero">
+                            </div>
+
+                            <!-- <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="password2" name="password2" required>
                                 <label for="password2">Confirma Contraseña</label>
-                            </div>
+                            </div> -->
 
                             <div class="d-grid mb-2">
                                 <input type="submit" class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" name="btnRegistro" value="Registrarse">
-                                <!-- <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit" name="btnRegistro">Regístrarse</button> -->
                             </div>
 
-                            <a class="d-block text-center mt-2 small" href="index.php">Ya tienes una cuenta? Ingresa Aca</a>
+                            <a class="d-block text-center mt-2 small" href="../index.php">Ya tienes una cuenta? Ingresa Aca</a>
 
                             <!-- <hr class="my-4"> -->
 

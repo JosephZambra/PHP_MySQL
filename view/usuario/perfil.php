@@ -1,7 +1,7 @@
 <?php
 // session_start();
 require_once('../head/navbar.php');
-require_once('C:\xampp\htdocs\www\PHP_MySQL\controlador\usuarioController.php');
+require_once('../../controlador/usuarioController.php');
 $respuesta = new usuarioController();
 $usuario = $respuesta->datosUusario($_SESSION['documento_per']);
 if($usuario->foto_per == ""){
@@ -58,7 +58,6 @@ if($usuario->foto_per == ""){
                 </div>
 
             </div>
-            <!-- <div class="d-flex my-3 mx-2"> -->
             <div class="m-5 text-center">
                 <a href="#" class="btn btn-warning">Editar Perfil</a>
                 <a href="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Cambiar Contraseña</a>
@@ -89,7 +88,6 @@ if($usuario->foto_per == ""){
                 </div>
             </div>
         </div>
-        <!-- </div> -->
     </div>
 </div>
 </div>

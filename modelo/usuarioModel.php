@@ -11,21 +11,21 @@ class usuarioModel
 
     public function insertar($documento, $nombre, $apellido, $fecha, $email, $telefono,$estado, $tipopersona, $semillero, $password)
     {
-        $stament = $this->PDO->prepare(" INSERT INTO personas(documento_per, nombre_per, apellido_per, fechanacimiento, email_per, telefono_per, estado_per, password_per, codigo_tip, codigo_sem) 
+        $sql = $this->PDO->prepare(" INSERT INTO personas(documento_per, nombre_per, apellido_per, fechanacimiento, email_per, telefono_per, estado_per, password_per, codigo_tip, codigo_sem) 
             VALUES(:documento_per, :nombre_per, :apellido_per, :fechanacimiento, :email_per, :telefono_per, :estado_per, :password_per, :tipo_per, :codigo_sem) ");
-        $stament->bindParam(":documento_per", $documento);
-        $stament->bindParam(":nombre_per", $nombre);
-        $stament->bindParam(":apellido_per", $apellido);
-        $stament->bindParam(":fechanacimiento", $fecha);
-        $stament->bindParam(":email_per", $email);
-        $stament->bindParam(":telefono_per", $telefono);
-        $stament->bindParam(":estado_per", $estado);
-        $stament->bindParam(":tipo_per", $tipopersona);
-        $stament->bindParam(":telefono_per", $telefono);
-        $stament->bindParam(":codigo_sem", $semillero);
-        $stament->bindParam(":password_per", $password);
+        $sql->bindParam(":documento_per", $documento);
+        $sql->bindParam(":nombre_per", $nombre);
+        $sql->bindParam(":apellido_per", $apellido);
+        $sql->bindParam(":fechanacimiento", $fecha);
+        $sql->bindParam(":email_per", $email);
+        $sql->bindParam(":telefono_per", $telefono);
+        $sql->bindParam(":estado_per", $estado);
+        $sql->bindParam(":tipo_per", $tipopersona);
+        $sql->bindParam(":telefono_per", $telefono);
+        $sql->bindParam(":codigo_sem", $semillero);
+        $sql->bindParam(":password_per", $password);
         // die(var_dump($stament));
-        return ($stament->execute()) ? true : die(var_dump($stament));
+        return ($sql->execute()) ? true : die(var_dump($sql));
     }
 
     public function validarClave($documento)

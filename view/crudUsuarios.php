@@ -11,12 +11,10 @@ $res = $respuesta->lista();
             <!-- BOTON PARA CREAR NUEVO USUARIOS -->
             <div class="d-flex justify-content-between">
                 <a href="./usuario/crearUsuario.php" class="btn btn-primary mb-3">Crear Usuario</a>
-                <form action="./crudUsuarios.php" method="POST" class="w-50 h-50">
-                    <div class="input-group ">
-                        <span class="input-group-text"><i class="bi bi-search"></i></i></span>
-                        <input type="text" class="form-control" placeholder="Bucar" name="buscar" id="search" onkeyup="buscarTabla()">
-                    </div>
-                </form>
+                <div class="input-group w-50 h-50">
+                    <span class="input-group-text"><i class="bi bi-search"></i></i></span>
+                    <input type="text" class="form-control" placeholder="Bucar" name="buscar" id="search" onkeyup="buscarTabla()">
+                </div>
             </div>
             <table class="table table-hover" id="tablaDatos">
                 <thead>
@@ -24,7 +22,6 @@ $res = $respuesta->lista();
                         <th scope="col"># Doc</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellido</th>
-                        <!-- <th scope="col">Email</th> -->
                         <th scope="col">Tipo</th>
                         <th scope="col">Acciones</th>
                     </tr>

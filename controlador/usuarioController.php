@@ -23,7 +23,6 @@ class usuarioController
             $semillero,
             $this->passHash($this->limpiarPass($password))
         );
-        // return ($id != false) ? header('location: /www/PHP_MYSQL/index.php') : header('location: /www/PHP_MYSQL/view/registro.php');
         return ($id != false) ? header('location: /www/PHP_MYSQL/view/crudUsuarios.php') : header('location: /www/PHP_MYSQL/view/usuario/crearUsuario.php');
     }
 
@@ -32,8 +31,6 @@ class usuarioController
         $persona = $this->model->validarClave($this->limpiarCadena($documento));
         $pass = $persona->password_per;
         return (password_verify($password, $pass)) ? $persona : false;
-        // return ($usuario != false) ? header("location: /www/PHP_MYSQL/view/inicio.php") : header("location: /www/PHP_MYSQL/index.php");
-
     }
 
     public function lista()

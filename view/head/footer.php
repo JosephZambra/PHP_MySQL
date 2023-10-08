@@ -1,4 +1,4 @@
-<footer class="">
+<footer class="bg-dark">
     <div class="container-fluid footer">
         <div class="redes">
             <a href="#"><i class="bi bi-twitter-x"></i></i></a>

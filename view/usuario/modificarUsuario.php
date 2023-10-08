@@ -5,7 +5,6 @@ $respuesta = new usuarioController();
 $usuario = $respuesta->datosUusario($_GET['id']);
 $tipos = $respuesta->tiposUsuarios();
 $semilleros = $respuesta->listaSemilleros();
-// die(var_dump($tipos));
 ?>
 <div class="container-fluid">
     <div class="row flex-nowrap">
@@ -94,8 +93,8 @@ $semilleros = $respuesta->listaSemilleros();
                 </div>
                 <div class="d-flex justify-content-between">
                     <div class="">
-                        <a href="./datosUsuario.php?id=<?php echo $usuario->documento_per ?>" class="btn btn-dark">Regresar</a>
                         <input type="submit" class="btn btn-success" value="Actualizar">
+                        <a href="./datosUsuario.php?id=<?php echo $usuario->documento_per ?>" class="btn btn-dark">Regresar</a>
                     </div>
                     <div class="">
                         <a href="../scripts/resetPass.php?id=<?php echo $usuario->documento_per ?>" class="text-end btn btn-danger">Reset Contrseña</a>                        

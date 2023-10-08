@@ -1,6 +1,6 @@
 <?php
-require_once('C:\xampp\htdocs\www\PHP_MySQL\view\head\navbar.php');
-require_once('C:\xampp\htdocs\www\PHP_MySQL\controlador\usuarioController.php');
+require_once('../head/navbar.php');
+require_once('../../controlador/usuarioController.php');
 $respuesta = new usuarioController();
 $tipos = $respuesta->tiposUsuarios();
 $semilleros = $respuesta->listaSemilleros();
@@ -14,7 +14,7 @@ $semilleros = $respuesta->listaSemilleros();
                 <div class="mb-3 row">
                     <label for="staticEmail" class="col-sm-2 col-form-label ">Documento: </label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputText" name="documento">
+                        <input type="text" class="form-control" id="inputText" name="documento" autofocus>
                     </div>
                 </div>
                 <div class="mb-3 row">
@@ -103,5 +103,5 @@ $semilleros = $respuesta->listaSemilleros();
     </div>
 </div>
 <?php
-require_once('C:\xampp\htdocs\www\PHP_MySQL\view\head\footer.php')
+require_once('../head/footer.php')
 ?>
