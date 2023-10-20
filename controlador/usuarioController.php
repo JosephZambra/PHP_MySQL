@@ -33,9 +33,9 @@ class usuarioController
         return (password_verify($password, $pass)) ? $persona : false;
     }
 
-    public function lista()
+    public function lista($id)
     {
-        return ($this->model->lista()) ? $this->model->lista() : false;
+        return ($this->model->lista($id)) ? $this->model->lista($id) : false;
     }
 
     public function datosUusario($documento)
@@ -51,6 +51,16 @@ class usuarioController
     public function eliminarUsuario($documento)
     {
         return ($this->model->eliminarUsuario($documento)) ? header("Location: /www/PHP_MYSQL/view/crudUsuarios.php") : header("Location: /www/PHP_MYSQL/view/usuario/datosUsuario.php?id=".$documento);
+    }
+
+    public function contacto_cliente($id, $fecha, $hora, $tipo, $servicio, $descripcion, $reg)
+    {
+        return ($this->model->contacto_cliente($id, $fecha, $hora, $tipo, $servicio, $this->limpiarCadena($descripcion), $reg)) ? header("Location: /www/PHP_MYSQL/view/crudUsuarios.php") : header("Location: /www/PHP_MYSQL/view/crudUsuarios.php");
+    }
+
+    public function listaContactos()
+    {
+        return ($this->model->listaContactos()) ? $this->model->listaContactos() : false;
     }
 
     public function newPass($doc, $pass)

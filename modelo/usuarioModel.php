@@ -37,9 +37,10 @@ class usuarioModel
         return ($sql->execute()) ? $sql->fetchObject() : false;
     }
 
-    public function lista()
+    public function lista($id)
     {
-        $sql = $this->PDO->prepare(" SELECT p.*, tp.nombre_tip FROM personas p, tipopersonas tp WHERE p.codigo_tip = tp.codigo_tip ORDER BY p.nombre_per ");
+        $sql = $this->PDO->prepare(" SELECT p.*, tp.nombre_tip FROM personas p, tipopersonas tp WHERE p.codigo_tip = tp.codigo_tip AND p.documento_per != :id ORDER BY p.nombre_per ");
+        $sql->bindParam(":id", $id);
         return ($sql->execute()) ? $sql->fetchAll(PDO::FETCH_OBJ) : false;
     }
 
@@ -74,6 +75,26 @@ class usuarioModel
         $sql = $this->PDO->prepare(" DELETE FROM personas WHERE documento_per = :doc ");
         $sql->bindParam(":doc", $documento);
         return ($sql->execute()) ? true : false;
+    }
+
+    public function contacto_cliente($id, $fecha, $hora, $tipo, $servicio,$descripcion,$reg)
+    {
+        $sql = $this->PDO->prepare(" INSERT INTO contactos_clientes(usuario_id,fecha,hora,tipo,servicio,descripcion,registro_id) 
+                                    VALUES (:id, :fecha, :hora, :tipo, :servicio, :descripcion, :reg) ");
+        $sql->bindParam(":id", $id);
+        $sql->bindParam(":fecha", $fecha);
+        $sql->bindParam(":hora", $hora);
+        $sql->bindParam(":tipo", $tipo);
+        $sql->bindParam(":servicio", $servicio);
+        $sql->bindParam(":descripcion", $descripcion);
+        $sql->bindParam(":reg", $reg);
+        return ($sql->execute()) ? true : false;
+    }
+
+    public function listaContactos()
+    {
+        $sql = $this->PDO->prepare(" SELECT c.*, p.nombre_per FROM contactos_clientes c, personas p WHERE c.usuario_id = p.documento_per ORDER BY c.fecha ");
+        return ($sql->execute()) ? $sql->fetchAll(PDO::FETCH_OBJ) : false;
     }
 
     public function resetPass($documento, $pass)

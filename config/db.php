@@ -6,9 +6,10 @@ class db {
     private $password = "";
     public function conexion() {
         try {
-            $PDO = new PDO("mysql:host=".$this->host.";dbname=".$this->dbname,$this->user,$this->password);
+            $PDO = new PDO("mysql:host=".$this->host.";port=3306;dbname=".$this->dbname,$this->user,$this->password);
             return $PDO;
         } catch (PDOException $e) {
+            echo "<script>alert('Error conectando la base de datos')</script>";
             return $e->getMessage();
         }
     }

@@ -16,7 +16,7 @@ if($usuario->foto_per == ""){
 
             <div class="row mt-5">
                 <div class="col-5 mx-auto">
-                    <div class="card text-center" style="width: 23rem;">
+                    <div class="card text-center" style="width: 18rem;">
                         <img src="/www/PHP_MYSQL/public/imagenes/perfiles/<?php echo $usuario->foto_per ?>" class="card-img-top" alt="Imagen Perfil">
                         <div class="card-body">
                             <div class="mb-1">
@@ -59,7 +59,7 @@ if($usuario->foto_per == ""){
 
             </div>
             <div class="m-5 text-center">
-                <a href="#" class="btn btn-warning">Editar Perfil</a>
+                <a href="#" class="btn btn-success">Editar Perfil</a>
                 <a href="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Cambiar Contraseña</a>
             </div>
             <!-- MODAL CAMBIAR CONTRASEÑA -->

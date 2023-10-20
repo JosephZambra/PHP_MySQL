@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./public/css/estilos.css">
     <title>Login de Usuario</title>
+    <script>
+        const mensajeError = () => {
+            const mensaje = document.getElementById("alert-error");
+            console.log(mensaje)
+            console.log('Se activa')
+            setInterval(() => {
+                mensaje.style.display = 'none'
+            }, 5000);
+        }
+    </script>
 </head>
 
 <body>
@@ -19,6 +29,20 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-9 col-lg-8 mx-auto">
+                                <?php 
+                                    if (!empty($_GET['error'])) {                                        
+                                ?>
+                                        <div class="alert alert-danger" role="alert" id="alert-error">
+                                            <?php echo '<script>', 'mensajeError();', '</script>'; ?>
+                                            <?php if ($_GET['error'] == 'inactivo') { ?>
+                                                El usuario esta inactivo, contacta a un administrador para ayuda.
+                                            <?php }else{ ?>
+                                            Id o Contraseña Incorrectos
+                                            <?php } ?>
+                                        </div>
+                                 <?php  
+                                  }
+                                ?>
                                 <h3 class=" mb-4">Inicia Sesión</h3>
                                 <!-- Formulario de Login -->
                                 <form action="./view/scripts/login.php" method="POST">

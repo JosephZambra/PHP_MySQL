@@ -8,6 +8,10 @@ if (!empty($_POST['btnIngresar'])) {
         $password = $usuario->limpiarPass($_POST["password"]);
         $respuesta = $usuario->login($documento,$password);
         if ($respuesta != false) {
+            if ($respuesta->estado_per == "INACTIVO") {
+                $error = "inactivo";
+                return header('Location: /www/PHP_MYSQL/index.php?error='.$error);
+            }
             $_SESSION['documento_per'] = $respuesta->documento_per;
             $_SESSION['nombre_per'] = $respuesta->nombre_per;
             $_SESSION['apellido_per'] = $respuesta->apellido_per;
@@ -15,20 +19,10 @@ if (!empty($_POST['btnIngresar'])) {
             $_SESSION['fotoPer'] = $respuesta->foto_per;
             header("Location: /www/PHP_MYSQL/view/inicio.php");
         }else{
-            $error = "<div class='alert alert-danger'>Acceso Denegado</div>";
-            header('Location: /www/PHP_MYSQL/index.php');
+            $error = "pass_id_incorrect";
+            header('Location: /www/PHP_MYSQL/index.php?error='.$error);
         }
-        // if ($datos = $sql->fetch_object()) {
-        //     // die(var_dump($datos));
-        //     $_SESSION['documento_per'] = $datos->documento_per;
-        //     $_SESSION['nombre_per'] = $datos->nombre_per;
-        //     $_SESSION['apellido_per'] = $datos->apellido_per;
-        //     // header("location: /www/PHP_MYSQL/view/inicio.php");
-        // } else {
-        //     echo "<div class='alert alert-danger'>Acceso Denegado</div>";
-        // }
     } else {
         header('Location: /www/PHP_MYSQL/index.php');
-        // echo "<div class='alert alert-danger'>Llenar los campos</div>";
     }
 }

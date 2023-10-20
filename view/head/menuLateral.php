@@ -3,7 +3,7 @@
     <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
       <span class="fs-5 d-none d-sm-inline"><?php echo $_SESSION['nombre_per'] ?></span>
     </a>
-    <p class="fs-6 fw-light text-decoration-underline"><?php echo $_SESSION['tipoPersona'] ?></p>
+    <span class="fs-9 d-none d-sm-inline"><?php echo $_SESSION['tipoPersona'] ?></span>
     <hr>
     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
       <li class="nav-item">
@@ -12,33 +12,96 @@
         </a>
       </li>
       <?php if ($_SESSION['tipoPersona'] == 'Administrador') { ?>
-        <li>
-          <a href="/www/PHP_MYSQL/view/crudUsuarios.php" class="nav-link px-0 align-middle">
-            <i class="fs-4 bi-people text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Usuarios</span> </a>
-        </li>
+        <li class="mb-1">
+        <button class="nav-link px-0 align-middle rounded collapsed" data-bs-toggle="collapse" data-bs-target="#usuarios-collapse" aria-expanded="false">
+          <i class="fs-4 bi-people text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Usuarios</span>
+        </button>
+        <div class="collapse" id="usuarios-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="/www/PHP_MYSQL/view/crudUsuarios.php" class="nav-link text-white rounded">Gestionar Usuarios</a></li>
+            <li><a href="/www/PHP_MYSQL/view/usuario/contactoClientes.php" class="nav-link text-white rounded">Historial de Contacto</a></li>
+          </ul>
+        </div>
+      </li>
       <?php }
         if($_SESSION['tipoPersona'] == 'Profesor' || $_SESSION['tipoPersona'] == 'Administrador'){
        ?>
-      <li>
-        <a href="/www/PHP_MYSQL/view/usuario/crearTarea.php" class="nav-link px-0 align-middle">
-          <i class="fs-4 bi-table text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Crear Tarea</span></a>
+      <li class="mb-1">
+        <button class="nav-link px-0 align-middle rounded collapsed" data-bs-toggle="collapse" data-bs-target="#productos-collapse" aria-expanded="false">
+          <i class="fs-4 bi-table text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Productos</span>
+        </button>
+        <div class="collapse" id="productos-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="/www/PHP_MYSQL/view/productos/clasesProductos.php" class="nav-link text-white rounded">Gestionar zClases</a></li>
+            <li><a href="/www/PHP_MYSQL/view/productos/productos.php" class="nav-link text-white rounded">Gestionar Productos</a></li>
+          </ul>
+        </div>
       </li>
       <?php }
         if ($_SESSION['tipoPersona'] == 'Estudiante' || $_SESSION['tipoPersona'] == 'Administrador') { 
       ?>
       <li>
-        <a href="/www/PHP_MYSQL/view/usuario/subirArchivos.php" class="nav-link px-0 align-middle">
-          <i class="fs-4 bi-grid text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Enviar Archivo</span> </a>
-        <!-- <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-              <li class="w-100">
-                <a href="#" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline text-white">Product</span> 1</a>
-              </li>
-              <li>
-                <a href="#" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline text-white">Product</span> 2</a>
-              </li>
-            </ul> -->
-      </li>
+        <a href="#submenu3" class="nav-link px-0 align-middle">
+          <i class="fs-4 bi-grid text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Informes</span> </a>
+      </li>      
       <?php } ?>
     </ul>
   </div>
 </div>
+
+<!-- <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+          Home
+        </button>
+        <div class="collapse show" id="home-collapse" style="">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded">Overview</a></li>
+            <li><a href="#" class="link-dark rounded">Updates</a></li>
+            <li><a href="#" class="link-dark rounded">Reports</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          Dashboard
+        </button>
+        <div class="collapse" id="dashboard-collapse" style="">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded">Overview</a></li>
+            <li><a href="#" class="link-dark rounded">Weekly</a></li>
+            <li><a href="#" class="link-dark rounded">Monthly</a></li>
+            <li><a href="#" class="link-dark rounded">Annually</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+          Orders
+        </button>
+        <div class="collapse" id="orders-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded">New</a></li>
+            <li><a href="#" class="link-dark rounded">Processed</a></li>
+            <li><a href="#" class="link-dark rounded">Shipped</a></li>
+            <li><a href="#" class="link-dark rounded">Returned</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="border-top my-3"></li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+          Account
+        </button>
+        <div class="collapse" id="account-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded">New...</a></li>
+            <li><a href="#" class="link-dark rounded">Profile</a></li>
+            <li><a href="#" class="link-dark rounded">Settings</a></li>
+            <li><a href="#" class="link-dark rounded">Sign out</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div> -->

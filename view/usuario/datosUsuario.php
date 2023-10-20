@@ -9,6 +9,9 @@ $usuario = $respuesta->datosUusario($_GET['id']);
         <?php require_once('C:\xampp\htdocs\www\PHP_MySQL\view\head\menulateral.php') ?>
         <div class="col py-3">
             <h2>Datos del Usuario</h2>
+            <?php if(empty($usuario)){ ?>
+                <div class="alert alert-danger my-5">No se encontro usuario</div>
+            <?php }else{ ?>
             <table class="table">
                 <thead>
                     <tr>
@@ -75,6 +78,7 @@ $usuario = $respuesta->datosUusario($_GET['id']);
                     </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
     </div>
 </div>

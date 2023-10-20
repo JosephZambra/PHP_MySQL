@@ -11,3 +11,17 @@ const mostrarOcultarPass = () => {
     iconPass.classList.remove("bi-eye");
   }
 };
+
+const fila = document.getElementById('tablaDatos');
+fila.addEventListener('click', (e) => {
+  e.stopPropagation();
+  data = e.target.parentElement.parentElement.children;
+  llenarModal(data);
+})
+
+const llenarModal = (data) => {
+  const input_id = document.getElementById('id_user');
+  const input_name = document.getElementById('nombre_user');
+  input_id.value = data[0].textContent;
+  input_name.value = data[1].textContent;
+}
