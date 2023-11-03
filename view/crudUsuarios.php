@@ -2,13 +2,14 @@
 require_once('./head/navbar.php');
 require_once('../controlador/usuarioController.php');
 $respuesta = new usuarioController();
-$res = $respuesta->lista($_SESSION['documento_per']);
+$res = $respuesta->listarUsuarios($_SESSION['documento']);
 ?>
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <?php require_once('./head/menuLateral.php') ?>
         <div class="col py-3">
             <!-- BOTON PARA CREAR NUEVO USUARIOS -->
+            <h3 class="text-center mb-4">Gestión de Usuarios</h3>
             <div class="d-flex justify-content-between">
                 <a href="./usuario/crearUsuario.php" class="btn btn-primary mb-3">Crear Usuario</a>
                 <div class="input-group w-50 h-50">
@@ -16,7 +17,7 @@ $res = $respuesta->lista($_SESSION['documento_per']);
                     <input type="text" class="form-control" placeholder="Bucar" name="buscar" id="search" onkeyup="buscarTabla()">
                 </div>
             </div>
-            <table class="table table-hover" id="tablaDatos">
+            <table class="table table-dark table-striped" id="tablaDatos">
                 <thead>
                     <tr>
                         <th scope="col"># Doc</th>
@@ -30,12 +31,12 @@ $res = $respuesta->lista($_SESSION['documento_per']);
                     <?php if (!is_null($res)) : ?>
                         <?php foreach ($res as $usuario) : ?>
                             <tr>
-                                <td class="fw-bold" scope="row"><?php echo $usuario->documento_per ?></td>
-                                <td><?php echo $usuario->nombre_per ?></td>
-                                <td><?php echo $usuario->apellido_per ?></td>
+                                <td class="fw-bold" scope="row"><?php echo $usuario->documento ?></td>
+                                <td><?php echo $usuario->nombre ?></td>
+                                <td><?php echo $usuario->apellidos ?></td>
                                 <td><?php echo $usuario->nombre_tip ?></td>
                                 <td>
-                                    <a href="./usuario/datosUsuario.php?id=<?php echo $usuario->documento_per ?>" class="btn btn-sm btn-outline-info">Ver Mas</a>
+                                    <a href="./usuario/datosUsuario.php?id=<?php echo $usuario->documento ?>" class="btn btn-sm btn-outline-info">Ver Mas</a>
                                     <a href="" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal" id="contactar">Contactar</a>
                                 </td>
                             </tr>

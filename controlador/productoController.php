@@ -9,7 +9,7 @@ class productoController
         $this->model = new productoModel();
     }
 
-    public function registrar($nombre, $desc, $cantidad, $clase, $precio, $estado)
+    public function registrar($nombre, $desc, $cantidad, $clase, $precio, $estado, $doc, $imagen)
     {
         $id = $this->model->insertarProductos(
             $this->limpiarCadena($nombre),
@@ -17,7 +17,9 @@ class productoController
             $this->limpiarNumero($cantidad),
             $this->limpiarNumero($clase),
             $this->limpiarNumero($precio),
-            $estado
+            $estado,
+            $doc,
+            $imagen
         );
         return ($id != false) ? header('location: /www/PHP_MYSQL/view/productos/productos.php') : header('location: /www/PHP_MYSQL/view/productos/productos.php');
     }

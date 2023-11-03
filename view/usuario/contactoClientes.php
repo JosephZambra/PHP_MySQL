@@ -28,7 +28,7 @@ $contactos = $respuesta->listaContactos();
                         <?php foreach ($contactos as $contacto) : ?>
                             <tr>
                                 <td class="fw-bold" scope="row"><?php echo $contacto->id ?></td>
-                                <td><?php echo $contacto->nombre_per ?></td>
+                                <td><?php echo $contacto->nombre ?></td>
                                 <td><?php echo $contacto->fecha ?></td>
                                 <td><?php echo $contacto->hora ?></td>
                                 <td><?php echo $contacto->tipo ?></td>

@@ -22,44 +22,40 @@ $usuario = $respuesta->datosUusario($_GET['id']);
                 <tbody>
                     <tr>
                         <th scope="row">Documento</th>
-                        <td><?php echo $usuario->documento_per ?></td>
+                        <td><?php echo $usuario->documento ?></td>
                     </tr>
                     <tr>
                         <th scope="row">Nombre</th>
-                        <td><?php echo $usuario->nombre_per ?></td>
+                        <td><?php echo $usuario->nombre ?></td>
                     </tr>
                     <tr>
                         <th scope="row">Apellido</th>
-                        <td colspan="2"><?php echo $usuario->apellido_per ?></td>
+                        <td colspan="2"><?php echo $usuario->apellidos ?></td>
                     </tr>
                     <tr>
                         <th scope="row">Fecha Nacimiento</th>
-                        <td colspan="2"><?php echo $usuario->fechanacimiento ?></td>
+                        <td colspan="2"><?php echo $usuario->fecha_n ?></td>
                     </tr>
                     <tr>
                         <th scope="row">Correo</th>
-                        <td colspan="2"><?php echo $usuario->email_per ?></td>
+                        <td colspan="2"><?php echo $usuario->correo ?></td>
                     </tr>
                     <tr>
                         <th scope="row">Telefono</th>
-                        <td colspan="2"><?php echo $usuario->telefono_per ?></td>
+                        <td colspan="2"><?php echo $usuario->telefono ?></td>
                     </tr>
                     <tr>
                         <th scope="row">Estado</th>
-                        <td colspan="2"><?php echo $usuario->estado_per ?></td>
+                        <td colspan="2"><?php echo $usuario->estado ?></td>
                     </tr>
                     <tr>
                         <th scope="row">Tipo Persona</th>
                         <td colspan="2"><?php echo $usuario->nombre_tip ?></td>
                     </tr>
-                    <tr>
-                        <th scope="row">Semillero</th>
-                        <td colspan="2"><?php echo $usuario->nombre_sem ?></td>
-                    </tr>
                 </tbody>
             </table>
             <a href="../crudUsuarios.php" class="btn btn-dark">Regresar</a>
-            <a href="../usuario/modificarUsuario.php?id=<?php echo $usuario->documento_per ?>"" class="btn btn-primary">Modificar</a>
+            <a href="../usuario/modificarUsuario.php?id=<?php echo $usuario->documento ?>"" class="btn btn-primary">Modificar</a>
             <a href="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</a>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -69,11 +65,11 @@ $usuario = $respuesta->datosUusario($_GET['id']);
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <h4>Desea eliminar el usuario: <?php echo $usuario->nombre_per ?></h4>
+                            <h4>Desea eliminar el usuario: <?php echo $usuario->nombre ?></h4>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
-                            <a href="../scripts/eliminarUsuario.php?id=<?php echo $usuario->documento_per ?>" class="btn btn-danger">Eliminar</a>
+                            <a href="../scripts/eliminarUsuario.php?id=<?php echo $usuario->documento ?>" class="btn btn-danger">Eliminar</a>
                         </div>
                     </div>
                 </div>

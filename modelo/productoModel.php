@@ -10,17 +10,18 @@ class productoModel
         
     }
 
-    public function insertarProductos($nombre, $desc, $cantidad, $clase, $precio, $estado)
+    public function insertarProductos($nombre, $desc, $cantidad, $clase, $precio, $estado, $doc, $imagen)
     {
-        $sql = $this->PDO->prepare(" INSERT INTO productos(nombre, descripcion, cantidad, clase, precio, estado, fecha_creacion) 
-            VALUES(:nombre, :descripcion, :cantidad, :clase, :precio, :estado, current_date()) ");
+        $sql = $this->PDO->prepare(" INSERT INTO productos(nombre, descripcion, cantidad, clase, precio, estado, fecha_creacion, id_usuario, imagen) 
+            VALUES(:nombre, :descripcion, :cantidad, :clase, :precio, :estado, current_date(), :id_usuario, :imagen ) ");
         $sql->bindParam(":nombre", $nombre);
         $sql->bindParam(":descripcion", $desc);
         $sql->bindParam(":cantidad", $cantidad);
         $sql->bindParam(":clase", $clase);
         $sql->bindParam(":precio", $precio);
         $sql->bindParam(":estado", $estado);
-        // die(var_dump($stament));
+        $sql->bindParam(":id_usuario", $doc);
+        $sql->bindParam(":imagen", $imagen);
         return ($sql->execute()) ? true : die(var_dump($sql));
     }
 

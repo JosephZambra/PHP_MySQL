@@ -1,7 +1,7 @@
 <?php
 class db {
     private $host = "localhost";
-    private $dbname = "usuariosbd";
+    private $dbname = "crm_db";
     private $user = "root";
     private $password = "";
     public function conexion() {

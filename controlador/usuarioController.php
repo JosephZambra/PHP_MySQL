@@ -9,33 +9,35 @@ class usuarioController
         $this->model = new usuarioModel();
     }
 
-    public function registrar($documento, $nombre, $apellido, $fecha, $telefono, $email, $password, $estado, $tipopersona, $semillero)
+    public function registrar($documento, $nombre, $apellidos, $direccion, $fecha, $email, $telefono,$estado, $tipoUsuario, $password, $servCliente)
     {
-        $id = $this->model->insertar(
+        $id = $this->model->insertarUsuario(
             $this->limpiarNumero($documento),
             $this->limpiarCadena($nombre),
-            $this->limpiarCadena($apellido),
+            $this->limpiarCadena($apellidos),
+            $this->limpiarCadena($direccion),
             $fecha,
             $this->limpiarCorreo($email),
             $this->limpiarNumero($telefono),
             $estado,
-            $tipopersona,
-            $semillero,
-            $this->passHash($this->limpiarPass($password))
+            $tipoUsuario,
+            $this->passHash($this->limpiarPass($password)),
+            $servCliente
         );
         return ($id != false) ? header('location: /www/PHP_MYSQL/view/crudUsuarios.php') : header('location: /www/PHP_MYSQL/view/usuario/crearUsuario.php');
     }
 
     public function login($documento, $password)
     {
-        $persona = $this->model->validarClave($this->limpiarCadena($documento));
-        $pass = $persona->password_per;
-        return (password_verify($password, $pass)) ? $persona : false;
+        $usuario = $this->model->validarUsuario($this->limpiarCadena($documento));
+        $pass = $usuario->usuario_pass;
+        // die(var_dump(password_verify($password, $pass)));
+        return (password_verify($password, $pass)) ? $usuario : false;
     }
 
-    public function lista($id)
+    public function listarUsuarios($id)
     {
-        return ($this->model->lista($id)) ? $this->model->lista($id) : false;
+        return ($this->model->listarUsuarios($id)) ? $this->model->listarUsuarios($id) : false;
     }
 
     public function datosUusario($documento)
@@ -43,9 +45,9 @@ class usuarioController
         return ($this->model->datosUsuario($documento) !== false) ? $this->model->datosUsuario($documento) : false;
     }
 
-    public function actualizarUsuario($documento, $nombre, $apellido, $fecha, $email, $telefono, $estado_per, $codigo_tip, $semillero)
+    public function actualizarUsuario($documento, $nombre, $apellido, $fecha, $email, $telefono, $estado, $tipo)
     {
-        return ($this->model->actualizarUsuario($documento, $nombre, $apellido, $fecha, $email, $telefono, $estado_per, $codigo_tip, $semillero)) ? header("Location: /www/PHP_MYSQL/view/usuario/datosUsuario.php?id=".$documento) : header("Location: /www/PHP_MYSQL/view/crudUsuarios.php");
+        return ($this->model->actualizarUsuario($documento, $nombre, $apellido, $fecha, $email, $telefono, $estado, $tipo)) ? header("Location: /www/PHP_MYSQL/view/usuario/datosUsuario.php?id=".$documento) : header("Location: /www/PHP_MYSQL/view/crudUsuarios.php");
     }
 
     public function eliminarUsuario($documento)
@@ -81,11 +83,6 @@ class usuarioController
     public function tiposUsuarios()
     {
         return ($this->model->tiposUsuarios()) ? $this->model->tiposUsuarios() : false;
-    }
-
-    public function listaSemilleros()
-    {
-        return ($this->model->listaSemilleros()) ? $this->model->listaSemilleros() : false;
     }
 
     public function limpiarCadena($texto)

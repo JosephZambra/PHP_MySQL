@@ -14,9 +14,9 @@
         <div class="row">
             <div class="col-lg-10 col-xl-9 mx-auto">
                 <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
-                    <div class="card-img-left d-none d-md-flex">
-                        <!-- Aca va la Imagen desde CSS -->
-                    </div>
+                    <!-- <div class="card-img-left d-none d-md-flex">
+                    
+                    </div> -->
                     <div class="card-body p-2 p-sm-3">
                         <h5 class="card-title text-center mb-4 fw-bold fs-5">Regístrate</h5>
 
@@ -38,18 +38,23 @@
                             </div>
 
                             <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="direccion" name="direccion" required>
+                                <label for="direccion">Dirección</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
                                 <input type="date" class="form-control" id="fecha" name="fecha" required>
                                 <label for="fecha">Fecha Nacimiento</label>
                             </div>
 
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control" id="email" name="email">
-                                <label for="email">Dirección de Email</label>
+                                <label for="email">Correo</label>
                             </div>
 
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="telefono" name="telefono" required>
-                                <label for="telefono">Telefono</label>
+                                <label for="telefono">Teléfono</label>
                             </div>
 
                             <hr>
@@ -60,15 +65,17 @@
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="hidden" class="form-control" id="persona" name="tipopersona">
-                                <input type="hidden" class="form-control" id="persona" name="semillero">
+                                <input type="hidden" class="form-control" id="persona" name="tipoUsuario" value="0">
                             </div>
 
                             <!-- <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="password2" name="password2" required>
                                 <label for="password2">Confirma Contraseña</label>
                             </div> -->
-
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="servicioCliente" name="servicioCliente">
+                                <label class="form-check-label" for="servicioCliente">¿Permites que te enviemos noticias y promociones de nuestros productos?</label>
+                            </div>
                             <div class="d-grid mb-2">
                                 <input type="submit" class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" name="btnRegistro" value="Registrarse">
                             </div>

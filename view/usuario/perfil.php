@@ -3,57 +3,59 @@
 require_once('../head/navbar.php');
 require_once('../../controlador/usuarioController.php');
 $respuesta = new usuarioController();
-$usuario = $respuesta->datosUusario($_SESSION['documento_per']);
-if($usuario->foto_per == ""){
-    $usuario->foto_per = "Perfil.jpg";
+$usuario = $respuesta->datosUusario($_SESSION['documento']);
+if ($usuario->imagen_perfil == "") {
+    $usuario->imagen_perfil = "Perfil.jpg";
 }
 ?>
 <div class="container-fluid">
     <div class="row flex-nowrap">
-        <?php require_once('../head/menuLateral.php') ?>
+        <?php if ($_SESSION['tipo_usuario'] == 'Administrador' || $_SESSION['tipo_usuario'] == 'Usuario') {
+            require_once('../head/menuLateral.php');
+        } else {
+            require_once('../head/menuCliente.php');
+        }
+        ?>
         <div class="col mx-auto py-3">
             <h2 class="text-center">Perfil Usuario</h2>
 
             <div class="row mt-5">
-                <div class="col-5 mx-auto">
-                    <div class="card text-center" style="width: 18rem;">
-                        <img src="/www/PHP_MYSQL/public/imagenes/perfiles/<?php echo $usuario->foto_per ?>" class="card-img-top" alt="Imagen Perfil">
+                <div class="col-4 mx-5">
+                    <div class="card" style="width: 18rem;">
+                        <img src="/www/PHP_MYSQL/public/imagenes/perfiles/<?php echo $usuario->imagen_perfil ?>" class="card-img-top rounded" alt="Imagen Perfil">
                         <div class="card-body">
                             <div class="mb-1">
                             </div>
                             <form action="/www/PHP_MYSQL/view/scripts/imagenPerfil.php" method="POST" enctype="multipart/form-data">
                                 <label for=" formFile" class="form-label fw-bold">Imagen de Perfil</label>
                                 <input class="form-control form-control-sm" type="file" id="formFile" name="perfil">
-                                <input type="hidden" class="form-control" id="inputPassword" name="doc" value="<?php echo $usuario->documento_per ?>">
+                                <input type="hidden" class="form-control" id="inputPassword" name="doc" value="<?php echo $usuario->documento ?>">
                                 <input type="submit" class="btn btn-outline-primary btn-sm mt-2" value="Subir Imagen">
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-5 row d-flex justify-content-start col-form-label">
+                <div class="col-4 row d-flex justify-content-start col-form-label">
                     <div>
-                        <label class="fw-bold mx-2">Documento: </label><span><?php echo $usuario->documento_per ?></span>
+                        <label class="fw-bold mx-2">Documento: </label><span><?php echo $usuario->documento ?></span>
                     </div>
                     <div>
-                        <label class="fw-bold mx-2">Nombre: </label><span><?php echo $usuario->nombre_per ?></span>
+                        <label class="fw-bold mx-2">Nombre: </label><span><?php echo $usuario->nombre ?></span>
                     </div>
                     <div>
-                        <label class="fw-bold mx-2">Apellido: </label><span><?php echo $usuario->apellido_per ?></span>
+                        <label class="fw-bold mx-2">Apellido: </label><span><?php echo $usuario->apellidos ?></span>
                     </div>
                     <div>
-                        <label class="fw-bold mx-2">Fecha Nacimiento: </label><span><?php echo $usuario->fechanacimiento ?></span>
+                        <label class="fw-bold mx-2">Fecha Nacimiento: </label><span><?php echo $usuario->fecha_n ?></span>
                     </div>
                     <div>
-                        <label class="fw-bold mx-2">Telefono: </label><span><?php echo $usuario->telefono_per ?></span>
+                        <label class="fw-bold mx-2">Telefono: </label><span><?php echo $usuario->telefono ?></span>
                     </div>
                     <div>
-                        <label class="fw-bold mx-2">Correo: </label><span><?php echo $usuario->email_per ?></span>
+                        <label class="fw-bold mx-2">Correo: </label><span><?php echo $usuario->correo ?></span>
                     </div>
                     <div>
                         <label class="fw-bold mx-2">Tipo Persona: </label><span><?php echo $usuario->nombre_tip ?></span>
-                    </div>
-                    <div>
-                        <label class="fw-bold mx-2">Semillero: </label><span><?php echo $usuario->nombre_sem ?></span>
                     </div>
                 </div>
 
@@ -75,7 +77,7 @@ if($usuario->foto_per == ""){
                                 <label for="inputPassword" class="fw-bold">Contraseña Nueva:</label>
                                 <div class="col-sm-10">
                                     <input type="password" class="form-control" id="inputPass" name="newPass" autofocus>
-                                    <input type="hidden" class="form-control" id="inputDoc" name="doc" value="<?php echo $usuario->documento_per ?>">
+                                    <input type="hidden" class="form-control" id="inputDoc" name="doc" value="<?php echo $usuario->documento ?>">
                                 </div>
 
                                 <div class="modal-footer">

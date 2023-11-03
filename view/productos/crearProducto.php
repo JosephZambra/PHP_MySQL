@@ -9,7 +9,7 @@ $clases = $respuesta->claseProducto();
         <?php require_once('../head/menuLateral.php') ?>
         <div class="col-7 mx-auto py-3">
             <h2 class="text-center mb-3">Crear Nuevo Producto</h2>
-            <form action="./cProducto.php" method="POST">
+            <form action="./cProducto.php" method="POST" enctype="multipart/form-data">
                 <div class="mb-3 row">
                     <label for="inputNombre" class="col-sm-2 col-form-label">Nombre:</label>
                     <div class="col-sm-10">
@@ -61,6 +61,12 @@ $clases = $respuesta->claseProducto();
                                     </option>
                             </select>
                         </div>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="imagenProducto" class="col-sm-2 col-form-label">Imagen:</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" id="imagenProducto" name="imagenProducto">
                     </div>
                 </div>
                 <input type="submit" class="btn btn-primary" name="btnRegistro" value="Guardar">
